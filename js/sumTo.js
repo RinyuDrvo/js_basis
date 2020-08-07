@@ -21,11 +21,10 @@ function sumToFor(n) {
  * @return 合計
  */
 function sumToRecursion(n) {
-  let sum = 0;
   if (n === 1) {
-    return sum;
+    return 1;
   } else {
-    sum = sumToRecursion(n - 1);
+    return n + sumToRecursion(n - 1);
   }
 }
 
@@ -36,8 +35,7 @@ function sumToRecursion(n) {
  * @return 合計
  */
 function sumToArthmeticProgression(n) {
-  let sum = 0;
-  return sum;
+  return n * (n + 1) / 2;
 }
 
 const sumToForButton = document.getElementById('sumToFor');
@@ -53,10 +51,10 @@ sumToForButton.onclick = function () {
 const sumToRecursionButton = document.getElementById('sumToRecursion');
 sumToRecursionButton.onclick = function () {
   alert(
-    "sumToRecursion(1) = " + sumToFor(1) + "\n" +
-    "sumToRecursion(2) = " + sumToFor(2) + "\n" +
-    "sumToRecursion(3) = " + sumToFor(3) + "\n" +
-    "sumToRecursion(100) = " + sumToFor(100)
+    "sumToRecursion(1) = " + sumToRecursion(1) + "\n" +
+    "sumToRecursion(2) = " + sumToRecursion(2) + "\n" +
+    "sumToRecursion(3) = " + sumToRecursion(3) + "\n" +
+    "sumToRecursion(100) = " + sumToRecursion(100)
   );
 }
 
