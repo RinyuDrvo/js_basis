@@ -58,3 +58,13 @@ sumToRecursionButton.onclick = function () {
   );
 }
 
+const sumToRecursionArthemticProgressionButton = document.getElementById('sumToArithmeticProgression');
+sumToRecursionArthemticProgressionButton.onclick = function () {
+  alert(
+    "sumToArthmeticProgression(1) = " + sumToArthmeticProgression(1) + "\n" +
+    "sumToArthmeticProgression(2) = " + sumToArthmeticProgression(2) + "\n" +
+    "sumToArthmeticProgression(3) = " + sumToArthmeticProgression(3) + "\n" +
+    "sumToArthmeticProgression100) = " + sumToArthmeticProgression(100)
+  );
+}
+
