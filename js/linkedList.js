@@ -54,6 +54,19 @@ function printListLoopReverse(list) {
   }
 }
 
+/**
+ * 単一連結リストのアイテムを逆順で出力
+ * 再帰を使用
+ * @param list 単一連結リスト
+ */
+function printListRecursionReverse(list) {
+  if (list.next) {
+    printListRecursionReverse(list.next);
+  }
+
+  alert(list.value);
+}
+
 const loopButton = document.getElementById("loop");
 loopButton.onclick = function () {
   printListLoop(list);
@@ -67,4 +80,9 @@ recursionButton.onclick = function () {
 const reverseLoopButton = document.getElementById("reverseLoop");
 reverseLoopButton.onclick = function () {
   printListLoopReverse(list);
+}
+
+const reverseRecursiveButton = document.getElementById("reverseRecursive");
+reverseRecursiveButton.onclick = function () {
+  printListRecursionReverse(list);
 }
