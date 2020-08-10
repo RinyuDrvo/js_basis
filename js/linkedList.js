@@ -17,11 +17,10 @@ let list = {
  * @param list 単一連結リスト
  */
 function printListLoop(list) {
-  console.log(list.value);
-  let nextList = list.next;
-  while (nextList !== null) {
-    console.log(nextList.value);
-    nextList = nextList.next;
+  let tmp = list;
+  while (tmp) {
+    alert(tmp.value);
+    tmp = tmp.next;
   }
 }
 
