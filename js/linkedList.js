@@ -14,6 +14,7 @@ let list = {
 
 /**
  * 単一連結リストのアイテムを1つずつ出力
+ * ループを使用
  * @param list 単一連結リスト
  */
 function printListLoop(list) {
@@ -24,7 +25,23 @@ function printListLoop(list) {
   }
 }
 
+/**
+ * 単一連結リストのアイテムを1つずつ出力
+ * 再帰を使用
+ * @param list 単一連結リスト
+ */
+function printListRecursion(list) {
+  alert(list.value);
+  if (list.next === null) return;
+  return printListLoop(list.next);
+}
+
 const loopButton = document.getElementById("loop");
 loopButton.onclick = function () {
   printListLoop(list);
+}
+
+const recursionButton = document.getElementById("recursive");
+recursionButton.onclick = function () {
+  printListRecursion(list);
 }
