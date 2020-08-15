@@ -1,12 +1,11 @@
-let json = '{"name":"John", "age": 30}';
-let user;
+// let json = '{"name":"John", "age": 30}';
+let json = '{ bad json }';
 
 try {
-  user = JSON.parse(json);
+  let user = JSON.parse(json);
+  alert(user.name);
+  alert(user.age);
 } catch (e) {
   alert(e.name);
   alert(e.message);
 }
-
-alert(user.name);
-alert(user.age);
