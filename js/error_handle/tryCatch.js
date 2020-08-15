@@ -1,25 +1,24 @@
-function readData() {
-  let json = '{ "name": "John", "age" : 30 }';
+let num = +prompt("Enter a positive integer number?", 35);
 
-  try {
-    let user = JSON.parse(json);
+let diff, result;
 
-    if (!user.name) throw new SyntaxError("Incomplete data: no name");
-
-    blabla();
-
-    alert(user.name);
-
-  } catch (e) {
-
-    if (e.name != 'SyntaxError') throw e;
-
-    if (e.name) alert("JSON Error: " + e.message);
+function fib(n) {
+  if (n < 0 || Math.trunc(n) != n) {
+    throw new Error("Must not be negative, and alse an integer");
   }
+  return n <= 1 ? n : fib(n - 1) + fib(n - 2);
 }
+
+let start = Date.now();
 
 try {
-  readData();
+  result = fib(num);
 } catch (e) {
-  alert("External catch got: " + e);
+  result = 0;
+} finally {
+  diff = Date.now() - start;
 }
+
+alert(result || "error occured");
+
+alert(`execution took ${diff}ms`);
