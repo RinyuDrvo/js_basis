@@ -1,11 +1,25 @@
-let json = '{ "age" : 30 }';
+function readData() {
+  let json = '{ "name": "John", "age" : 30 }';
+
+  try {
+    let user = JSON.parse(json);
+
+    if (!user.name) throw new SyntaxError("Incomplete data: no name");
+
+    blabla();
+
+    alert(user.name);
+
+  } catch (e) {
+
+    if (e.name != 'SyntaxError') throw e;
+
+    if (e.name) alert("JSON Error: " + e.message);
+  }
+}
 
 try {
-  let user = JSON.parse(json);
-
-  if (!user.name) throw new SyntaxError("Incomplete data: no name");
-
-  alert(user.name);
+  readData();
 } catch (e) {
-  alert("JSON Error: " + e.message);
+  alert("External catch got: " + e);
 }
