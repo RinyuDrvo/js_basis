@@ -1,11 +1,11 @@
-// let json = '{"name":"John", "age": 30}';
-let json = '{ bad json }';
+let json = '{ "age" : 30 }';
 
 try {
   let user = JSON.parse(json);
+
+  if (!user.name) throw new SyntaxError("Incomplete data: no name");
+
   alert(user.name);
-  alert(user.age);
 } catch (e) {
-  alert(e.name);
-  alert(e.message);
+  alert("JSON Error: " + e.message);
 }
