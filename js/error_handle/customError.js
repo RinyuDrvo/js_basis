@@ -54,6 +54,7 @@ function readUser(json) {
 
 try {
   readUser('{bad json}');
+  // readUser('{"name": "John"}');
   // readUser('{"name": "John", "age": 25}');
   alert("Read user successfully");
 } catch (err) {
