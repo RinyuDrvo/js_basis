@@ -6,13 +6,6 @@ class Error {
   }
 }
 
-class MyError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = this.constructor.name;
-  }
-}
-
 class ReadError extends Error {
   constructor(message, cause) {
     super(message);
