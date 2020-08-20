@@ -23,12 +23,7 @@ class ReadError extends Error {
 
 class ValidationError extends Error { }
 
-class PropertyRequiredError extends ValidationError {
-  // constructor(property) {
-  //   super("No property: " + property);
-  //   this.property = property;
-  // }
-}
+class PropertyRequiredError extends ValidationError { }
 
 function validateUser(user) {
   if (!user.age) {
