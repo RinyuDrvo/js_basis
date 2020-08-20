@@ -13,39 +13,64 @@ class MyError extends Error {
   }
 }
 
-class ValidationError extends MyError { }
+class ReadError extends Error {
+  constructor(message, cause) {
+    super(message);
+    this.cause = cause;
+    this.name = 'ReadError';
+  }
+}
+
+class ValidationError extends Error { }
 
 class PropertyRequiredError extends ValidationError {
-  constructor(property) {
-    super("No property: " + property);
-    this.property = property;
+  // constructor(property) {
+  //   super("No property: " + property);
+  //   this.property = property;
+  // }
+}
+
+function validateUser(user) {
+  if (!user.age) {
+    throw new PropertyRequiredError("age");
+  }
+  if (!user.name) {
+    throw new PropertyRequiredError("name");
   }
 }
 
 // Usage
 function readUser(json) {
-  let user = JSON.parse(json);
+  let user;
 
-  if (!user.age) {
-    throw new PropertyRequiredError("age");
-  }
-  if (!user.name) {
-    throw new PropertyRequiredError("name")
+  try {
+    user = JSON.parse(json);
+  } catch (err) {
+    if (err instanceof SyntaxError) {
+      throw new ReadError("Syntax Error", err);
+    } else {
+      throw err;
+    }
   }
 
-  return user;
+  try {
+    validateUser(user);
+  } catch (err) {
+    if (err instanceof ValidationError) {
+      throw new ReadError("Validation Error", err);
+    } else {
+      throw err;
+    }
+  }
 }
 
 try {
-  let user = readUser('{ "name": "John" }');
-  alert(user.name + user.age);
+  readUser('{bad json}');
+  // readUser('{"name": "John", "age": 25}');
+  alert("Read user successfully");
 } catch (err) {
-  if (err instanceof ValidationError) {
-    alert("Invalid data: " + err.message);
-    alert(err.name);
-    alert(err.property);
-  } else if (err instanceof SyntaxError) {
-    alert("JSON Syntax Error: " + err.message);
+  if (err instanceof ReadError) {
+    alert("Original error: " + err.cause);
   } else {
     throw err;
   }
