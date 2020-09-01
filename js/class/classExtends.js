@@ -19,9 +19,15 @@ class Rabbit extends Animal {
   hide() {
     alert(`${this.name} hides!`);
   }
+
+  // オーバーライド
+  stop() {
+    super.stop();
+    this.hide();
+  }
 }
 
 let rabbit = new Rabbit("White Rabbit");
 
 rabbit.run(5);
-rabbit.hide();
+rabbit.stop();
