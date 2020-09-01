@@ -16,6 +16,11 @@ class Animal {
 }
 
 class Rabbit extends Animal {
+  constructor(name, earLength) {
+    super(name);
+    this.earLength = earLength;
+  }
+
   hide() {
     alert(`${this.name} hides!`);
   }
@@ -27,7 +32,7 @@ class Rabbit extends Animal {
   }
 }
 
-let rabbit = new Rabbit("White Rabbit");
+let rabbit = new Rabbit("White Rabbit", 10);
 
-rabbit.run(5);
-rabbit.stop();
+alert(rabbit.name);
+alert(rabbit.earLength);
