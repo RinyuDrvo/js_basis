@@ -34,8 +34,9 @@ class Rabbit extends Animal {
 let rabbits = [
   new Rabbit("White Rabbit", 10),
   new Rabbit("Black Rabbit", 5),
-]
+];
 
+// 静的メソッドの継承
 rabbits.sort(Rabbit.compare);
 
 rabbits[0].run();
