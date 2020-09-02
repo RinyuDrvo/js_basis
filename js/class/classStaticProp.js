@@ -7,15 +7,12 @@ class Article {
   static compare(articleA, articleB) {
     return articleA - articleB;
   }
+
+  static createTodays() {
+    return new this("Today's digest", new Date());
+  }
 }
 
-// usage
-let articles = [
-  new Article("Mind", new Date(2019, 1, 1)),
-  new Article("Body", new Date(2019, 0, 1)),
-  new Article("JavaScirpt", new Date(2019, 11, 1)),
-];
+let article = Article.createTodays();
 
-articles.sort(Article.compare);
-
-alert(articles[0].title);
+alert(article.title);
