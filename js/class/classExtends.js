@@ -20,11 +20,6 @@ class Animal {
 }
 
 class Rabbit extends Animal {
-  // constructor(name, earLength) {
-  //   super(name);
-  //   this.earLength = earLength;
-  // }
-
   hide() {
     alert(`${this.name} hides!`);
   }
