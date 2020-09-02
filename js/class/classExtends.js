@@ -1,10 +1,10 @@
 class Animal {
-  constructor(name) {
-    this.speed = 0;
+  constructor(name, speed) {
+    this.speed = speed;
     this.name = name;
   }
 
-  run(speed) {
+  run(speed = 0) {
     this.speed += speed;
     alert(`${this.name} runs with speed ${this.speed}.`);
   }
@@ -13,13 +13,17 @@ class Animal {
     this.speed = 0;
     alert(`${this.name} stopped.`);
   }
+
+  static compare(animalA, animalB) {
+    return animalA.speed - animalB.speed;
+  }
 }
 
 class Rabbit extends Animal {
-  constructor(name, earLength) {
-    super(name);
-    this.earLength = earLength;
-  }
+  // constructor(name, earLength) {
+  //   super(name);
+  //   this.earLength = earLength;
+  // }
 
   hide() {
     alert(`${this.name} hides!`);
@@ -32,7 +36,11 @@ class Rabbit extends Animal {
   }
 }
 
-let rabbit = new Rabbit("White Rabbit", 10);
+let rabbits = [
+  new Rabbit("White Rabbit", 10),
+  new Rabbit("Black Rabbit", 5),
+]
 
-alert(rabbit.name);
-alert(rabbit.earLength);
+rabbits.sort(Rabbit.compare);
+
+rabbits[0].run();
