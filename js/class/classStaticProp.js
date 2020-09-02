@@ -4,15 +4,18 @@ class Article {
     this.date = date;
   }
 
+  // 静的プロパティ
+  static publisher = "Ilya Kantor";
+
+  // Articleオブジェクト同士を比較
   static compare(articleA, articleB) {
     return articleA - articleB;
   }
 
+  // 静的メソッドからインスタンスを作成
   static createTodays() {
     return new this("Today's digest", new Date());
   }
 }
 
-let article = Article.createTodays();
-
-alert(article.title);
+alert(Article.publisher);
