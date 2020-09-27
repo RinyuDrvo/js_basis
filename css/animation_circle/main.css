@@ -6,3 +6,9 @@
   background-color: red;
   border-radius: 50%;
 }
+
+.message-ball {
+  font-size: 20px;
+  line-height: 200px;
+  text-align: center;
+}
